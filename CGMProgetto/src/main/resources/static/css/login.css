@@ -1,0 +1,81 @@
+*{
+    font-family: 'EB Garamond', serif!important;
+}
+
+body{
+    background: #0d6efd!important;
+}
+
+.box{
+    position: relative;
+    width: 35rem;
+    height: 40rem;
+    background: #0288c2;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box::before{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background: linear-gradient(0deg, transparent, #45f3ff, #45f3ff);
+    transform-origin:  bottom right;
+    animation: animate 6s linear infinite;
+}
+.box::after{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background: linear-gradient(0deg, transparent, #45f3ff, #45f3ff);
+    transform-origin:  bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;
+}
+@keyframes animate{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}
+
+.form{
+    position: absolute;
+    z-index: 10;
+    width: calc(100% - 10px);
+    height: calc((100% - 10px));
+    border-radius: 8px;
+    background: #ffffff;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+h2{
+    font-family: 'EB Garamond', serif;
+    font-size: 70px!important;
+    font-weight: 700!important;
+    text-align: center;
+    color: #0d6efd!important;
+}
+
+span{
+    font-size: 1.25rem;
+}
+
+.errorPass{
+    color: red;
+}

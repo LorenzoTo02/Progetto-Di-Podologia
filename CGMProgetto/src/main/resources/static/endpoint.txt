@@ -1,0 +1,36 @@
+---- ANIMAL ----
+
+localhost:9026/api/animal -- GET all Animal
+
+localhost:9026/api/animal/{ID} -- GET animal by id
+
+localhost:9026/api/animal/earTag/{earTag} -- GET animal by earTag
+
+localhost:9026/api/animal -- POST add animal (earTag, birthday)
+
+localhost:9026/api/animal/{ID} -- DELETE delete animal by id
+
+localhost:9026/api/animal/earTag/{earTag} -- DELETE animal by earTag
+
+localhost:9026/api/animal/withPatologies -- GET all animal where Patologies = true
+
+localhost:9026/api/animal/withNoPatologies -- GET all animal where Patologies = false
+
+localhost:9026/api/animal/patology?value={?} -- GET all animal by patology
+
+
+---- PATOLOGY ----
+
+localhost:9026/api/patology -- GET all patologies
+
+localhost:9026/api/patology/{ID} -- GET patology by id
+
+localhost:9026/api/patology/animal/{ID} -- POST add patology by animal ID (patology)
+
+localhost:9026/api/patology/animal/{ID} -- GET all patology by animal ID
+
+localhost:9026/api/patology/animal/eartag/{earTag} -- GET all patology by animal earTag
+
+localhost:9026/api/patology/{animal}?id={ID} -- PUT update patology by patology id and animal id
+
+localhost:9026/api/patology/{ID} -- DELETE patology by ID

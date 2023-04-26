@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/NormalizeCss.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/login.css">
+
+    <title>Login</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <main>
+
+        <div class="container d-flex justify-content-center mt-5">
+
+            <div class="box">
+                <form class="form" th:action="@{/login}" method="post">
+                  <h2>Accedi</h2>
+                  <div th:if="${param.error}" class="text-center errorPass fs-3">
+                        Password invalida.
+                    </div>
+                    <div th:if="${param.logout}" class="text-center errorPass fs-3" >
+                        Sei stato disconnesso.
+                    </div>
+                  <div class="inputBox mt-2 mb-1">
+                    <span class="fs-3">Username</span>
+                    <input type="text" required="required" value="GIGI" class="form-control fs-3" name="username" readonly>
+                    <i></i>
+                  </div>
+                  <div class="inputBox mt-2 mb-1">
+                    <span class="fs-3">Password</span>
+                    <input type="password" required="required" id="pass" class="form-control fs-3" name="password">
+                    <i></i>
+                  </div>
+                  <!-- <div class="links">
+                    <a href="#">Password dimenticata?</a>
+                    <a href="#">Registrati</a>
+                  </div> -->
+                  <input type="submit" id="loginBtn" class="btn btn-primary mt-5 fs-2" value="Login">
+                </form>
+              </div>
+
+        </div>
+
+    </main>
+
+    <script src="./js/login.js"></script>
+    
+</body>
+</html>

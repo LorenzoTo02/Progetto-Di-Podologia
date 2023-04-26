@@ -1,0 +1,8 @@
+.btnPatologia{
+    /* font-family: 'EB Garamond', serif; */
+    font-size: 2.5rem;
+    background: #0d6efd;
+    /* border: #0d6efd 6px solid; */
+    border-radius: 30px;
+    border: 3.5px solid red;
+}

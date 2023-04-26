@@ -1,0 +1,17 @@
+.anteriore img, .posteriore img{
+    width: 10rem;
+}
+
+.vacca img{
+    width: calc(100% - 100px);
+}
+
+
+.unghia:hover{
+    opacity: .3;
+    /* background-color: red; */
+}
+
+/* .unghia{
+    transition: all 1s;
+} */
