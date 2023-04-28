@@ -38,7 +38,7 @@ function patologyBuilder(patologies){
             `<tr class="fs-3">
                     <th scope="row">${patology.patology}</th>
                     <td>${patology.date}</td>
-                    <td>${deleteButtonBuilder(patology)}</td>
+                    <td class="d-flex justify-content-center">${deleteButtonBuilder(patology)}</td>
             </tr>`;
             table.innerHTML = htmlCode;
         });

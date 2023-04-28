@@ -180,3 +180,12 @@ body{
     border: #8383837d solid 5px;
     color: #838383ba;
 }
+
+.formContainer{
+    width: 30rem;
+}
+
+.imgAgency img{
+    width: 10rem;
+    height: auto;
+}

@@ -38,4 +38,9 @@ public class PagesController {
         return "animalrecords";
     }
 
+    @GetMapping("/newagency")
+    public String addAgencyPage(){
+        return "agencyAdd";
+    }
+
 }
