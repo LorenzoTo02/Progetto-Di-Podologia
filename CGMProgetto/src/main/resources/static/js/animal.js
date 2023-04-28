@@ -1,5 +1,6 @@
 const URLParams = new URLSearchParams(window.location.search);
 let id = URLParams.get("id");
+let value = URLParams.get("agency");
 
 const URL = "http://localhost:9026/api/animal/" + id;
 
@@ -95,5 +96,12 @@ function patologyPost(){
     })
 
 }
+
+
+// ----- PULSANTE CARTELLA CLINICA
+
+let buttonMedical = document.querySelector("#buttonMedical");
+
+buttonMedical.setAttribute("href","http://localhost:9026/companies/agency/animal/medical?id=" + id + "&agency=" + value);
 
 

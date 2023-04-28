@@ -33,4 +33,9 @@ public class PagesController {
         return "animal";
     }
 
+    @GetMapping("/companies/agency/animal/medical")
+    public String medicalRecordsPage(){
+        return "animalrecords";
+    }
+
 }
