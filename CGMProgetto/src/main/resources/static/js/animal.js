@@ -90,11 +90,28 @@ function patologyPost(){
         },
         body: JSON.stringify(malattia) 
     })
-    .then(data => data.json) 
+    .then(data => {data.json
+        console.log(data.ok); 
+        if(data.ok){
+            showOkToast();
+        }   
+    }) 
     .then(response => {
-        console.log(response);
+        console.log(response)      
     })
+    
 
+}
+
+function showOkToast(){
+
+        const toastLiveExample = document.getElementById('liveToast')
+        
+        const toast = new bootstrap.Toast(toastLiveExample)
+
+        toast.show()
+            
+        
 }
 
 

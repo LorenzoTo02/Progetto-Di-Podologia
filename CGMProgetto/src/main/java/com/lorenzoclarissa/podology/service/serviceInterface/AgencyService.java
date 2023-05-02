@@ -9,5 +9,6 @@ public interface AgencyService {
 	List<AgencyDTO> viewAll();
 	AgencyDTO viewById(Long id);
 	void addAgency(AgencyDTO agency);
+	void deleteAgency(Long id);
 	
 }

@@ -3,6 +3,7 @@ package com.lorenzoclarissa.podology.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -21,7 +22,7 @@ public class AgencyEntity {
 	@Column(name = "agencyName")
 	private String name;
 	
-	@OneToMany(mappedBy = "agency", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "agency", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private List<AnimalEntity> animals;
 
 	public AgencyEntity(String name) {		

@@ -170,6 +170,11 @@ body{
     text-align: center;
 }
 
+.agencyRedButton{
+    background-color: red!important;
+    border-color: red!important;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                                   NO DATA                                  */
 /* -------------------------------------------------------------------------- */
@@ -188,4 +193,22 @@ body{
 .imgAgency img{
     width: 10rem;
     height: auto;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    TOAST                                   */
+/* -------------------------------------------------------------------------- */
+
+.personalToast{
+    background-color: green!important;
+    color: white!important;
+    font-weight: 400;
+    font-size: 1.5rem!important;
+}
+
+.redToast{
+    background-color: red!important;
+    color: white!important;
+    font-weight: 400;
+    font-size: 1.5rem!important;
 }

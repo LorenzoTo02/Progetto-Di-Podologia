@@ -32,7 +32,7 @@ public class AnimalEntity implements Serializable{
 	@Column(name = "birthdate", columnDefinition = "date")
 	private LocalDate birthday;
 	
-	@OneToMany(mappedBy = "animal", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy = "animal", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private List<PatologyEntity> patologies;
 	
 	@ManyToOne

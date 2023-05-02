@@ -4,16 +4,20 @@ let value = URLParams.get("agency");
 
 const URL = "http://localhost:9026/api/animal/" + id;
 
-fetch(URL)
-.then(data => {
-    return data.json()
-})
-.then(response => {
+onload = getPatologies();
 
-    animalBuilder(response);
-    console.log(response);
-    
-});
+function getPatologies(){
+    fetch(URL)
+    .then(data => {
+        return data.json()
+    })
+    .then(response => {
+
+        animalBuilder(response);
+        console.log(response);
+        
+    });
+}
 
 function animalBuilder(animal){
     let earTag = animal.earTag;
@@ -27,10 +31,12 @@ let nodata = document.querySelector("#no");
 
 
 function patologyBuilder(patologies){
+    table.innerHTML = '';
     let htmlCode = '';
 
     if(patologies.length == 0){
-        nodata.classList.add("d-flex");      
+        nodata.classList.remove("d-none");
+        nodata.classList.add("d-flex");          
     } else {
         patologies.forEach(patology => {
             nodata.classList.add("d-none");
@@ -43,10 +49,7 @@ function patologyBuilder(patologies){
             table.innerHTML = htmlCode;
         });
     }
-
-   
-
-    
+  
 }
 
 let table = document.querySelector("#tbodyTable");
@@ -59,8 +62,24 @@ function deleteButton(id){
     fetch('http://localhost:9026/api/patology/' + id, {
         method: 'DELETE',
     })
-        .then(res => res.text()) // or res.json()
+        .then(res => {res.text()
+            if(res.ok){
+                showOkToast();
+                getPatologies();
+            }
+        }) // or res.json()
         .then(res => console.log(res))
 
-    window.location.reload();
+    // window.location.reload();
+}
+
+function showOkToast(){
+
+    const toastLiveExample = document.getElementById('liveToast')
+    
+    const toast = new bootstrap.Toast(toastLiveExample)
+
+    toast.show()
+        
+    
 }

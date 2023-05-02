@@ -45,6 +45,12 @@ public class AgencyServiceIMPL implements AgencyService{
 		logger.info("created agency DTO");
 		repo.save(Factory.agencyDtoToEntity(agency));
 	}
+
+	@Override
+	public void deleteAgency(Long id) {
+		logger.info("Deleting agency DTO");	
+		repo.deleteById(id);
+	}
 	
 	
 	

@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,6 +41,12 @@ public class AgencyRestController {
 	public void addAgency(@RequestBody AgencyDTO agency) {
 		logger.info("call POST add agency named: " + agency.getName());
 		service.addAgency(agency);
+	}
+
+	@DeleteMapping("/{id}")
+	public void deleteAgency(@PathVariable("id") Long id){
+		logger.info("call DELETE agency by id: " + id);
+		service.deleteAgency(id);
 	}
 	
 }
