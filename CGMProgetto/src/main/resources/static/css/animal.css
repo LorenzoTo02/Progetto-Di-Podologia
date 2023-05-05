@@ -1,5 +1,5 @@
 @media (max-width: 768px){
-    .orecchino, .eta{
+    .orecchino, .eta, .descrizione{
         font-size: 1.25rem!important;
     }
     .card{
@@ -23,7 +23,7 @@
     .card{
         width: 13rem!important;
     }
-    .orecchino, .eta{
+    .orecchino, .eta, .descrizione{
         font-size: 1.5rem!important;
     }
 }
@@ -45,7 +45,7 @@
     background-color: #106CFD;
 }
 
-.orecchino, .eta{
+.orecchino, .eta, .descrizione{
     font-size: 1.75rem;
 }
 

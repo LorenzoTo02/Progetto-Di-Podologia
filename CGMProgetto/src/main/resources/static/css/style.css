@@ -104,6 +104,18 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+.bgBtn4{
+    background: url(https://www.pngmart.com/files/21/Admin-Profile-Vector-PNG-Clipart.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bgBtn5{
+    background: url(https://www.ruminantia.it/wp-content/uploads/2021/03/piede-vacca-pixabay.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
 
 .btnText1{
     /* font-family: 'EB Garamond', serif; */

@@ -10,6 +10,7 @@ public class AnimalDTO {
 	private String earTag;
 	private LocalDate birthday;	
 	private List<PatologyDTO> patologies;
+	private String description;
 	
 	// @JsonIgnore
 	private AgencyDTO agency;
@@ -71,6 +72,14 @@ public class AnimalDTO {
 	}
 	
 	
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 	public AgencyDTO getAgency() {
 		return agency;

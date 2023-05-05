@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="headerTitle d-flex col-6 align-items-center">
                     <a href="/"><img class="img-fluid logo me-3" src="/img/LOGO_definitivo.png" alt=""></a>
-                    <h1 class="fw-bold title mb-0">Lista animali</h1>
+                    <h1 class="fw-bold title mb-0">Lista animali: <span id="nAnimal"></span> capi</h1>
                 </div>
                 <div class="col-6 d-flex justify-content-end">
                    
@@ -47,12 +47,13 @@
     <main>
 
         <div class="container mt-5">
-
+            <h3 class="mb-2">Ricerca animale per ultime cifre di orecchino (MAX 6)</h3>
             <div class="input-group mb-3">
                 <button class="btn btn-outline-primary fs-2" type="button" id="buttonReload">
                     <i class="bi bi-arrow-clockwise"></i>
                 </button>
-                <input type="number" class="form-control text-muted fs-2" placeholder="Orecchino" aria-describedby="button-addon2" maxlength="6" id="inputEarTag">
+                
+                <input type="number" class="form-control text-muted fs-2" placeholder="Orecchino" aria-describedby="button-addon2" maxlength="6" id="inputEarTag" name="earTag">
                 <button class="btn btn-primary fs-2" type="button" id="buttonSearch">Cerca</button>
             </div>
 

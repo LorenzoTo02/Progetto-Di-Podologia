@@ -25,4 +25,8 @@ public interface AnimalService {
 
 	List<AnimalDTO> viewByLastSixEarTag(String earTagSix, Long id);
 	
+	void addDescription(String description, Long id);
+	
+	String viewDescription(Long id);
+	
 }

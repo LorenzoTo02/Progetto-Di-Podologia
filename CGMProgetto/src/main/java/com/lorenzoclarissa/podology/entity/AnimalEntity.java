@@ -31,6 +31,8 @@ public class AnimalEntity implements Serializable{
 	private String earTag;
 	@Column(name = "birthdate", columnDefinition = "date")
 	private LocalDate birthday;
+	@Column(name = "free_section", columnDefinition = "varchar(250)")
+	private String description;
 	
 	@OneToMany(mappedBy = "animal", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private List<PatologyEntity> patologies;
@@ -51,9 +53,6 @@ public class AnimalEntity implements Serializable{
 		this.birthday = birthday;
 		this.patologies = patologies;
 	}
-
-	
-
 
 	public AnimalEntity(Long id, String earTag, LocalDate birthday) {
 		this.id = id;
@@ -98,6 +97,15 @@ public class AnimalEntity implements Serializable{
 
 	public void setAgency(AgencyEntity agency) {
 		this.agency = agency;
+	}
+	
+	
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	@Override

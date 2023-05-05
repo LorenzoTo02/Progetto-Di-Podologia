@@ -6,9 +6,11 @@ import java.util.List;
 import com.lorenzoclarissa.podology.entity.AgencyEntity;
 import com.lorenzoclarissa.podology.entity.AnimalEntity;
 import com.lorenzoclarissa.podology.entity.PatologyEntity;
+import com.lorenzoclarissa.podology.entity.PatologyTypeEntity;
 import com.lorenzoclarissa.podology.model.AgencyDTO;
 import com.lorenzoclarissa.podology.model.AnimalDTO;
 import com.lorenzoclarissa.podology.model.PatologyDTO;
+import com.lorenzoclarissa.podology.model.PatologyTypeDTO;
 
 public class Factory {
 
@@ -41,6 +43,9 @@ public class Factory {
 		a.setEarTag(animal.getEarTag());
 		a.setBirthday(animal.getBirthdary());
 		a.setPatologies(pDTO);
+		if(animal.getDescription() != null) {
+			a.setDescription(animal.getDescription());
+		}
 		if(animal.getAgency() != null) {
 			AgencyDTO ag = new AgencyDTO();
 			ag.setName(animal.getAgency().getName());
@@ -102,6 +107,16 @@ public class Factory {
 //		a.setAnimals(animals);
 		
 		return a;
+	}
+
+	public static PatologyTypeEntity patDtoToEntity(PatologyTypeDTO patologyDTO){
+		return new PatologyTypeEntity(patologyDTO.getName());
+	}
+
+	public static PatologyTypeDTO patEntityToDTO(PatologyTypeEntity patologyEntity){
+		PatologyTypeDTO p = new PatologyTypeDTO(patologyEntity.getName());
+		p.setId(patologyEntity.getId());
+		return p;
 	}
 	
 }

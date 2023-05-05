@@ -25,14 +25,15 @@ public class PatologyEntity implements Serializable{
 	private Long id;
 	@Column(columnDefinition = "date")
 	private LocalDate date;
-	private PatologyEnum patology;
+	@Column(name = "name_patology", columnDefinition = "varchar(255)")
+	private String patology;
 	
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "patology_fk")
 	private AnimalEntity animal;
 	
-	public PatologyEntity(LocalDate date, PatologyEnum patology, AnimalEntity animal) {
+	public PatologyEntity(LocalDate date, String patology, AnimalEntity animal) {
 		this.date = date;
 		this.patology = patology;
 		this.animal = animal;
@@ -49,11 +50,11 @@ public class PatologyEntity implements Serializable{
 		this.date = date;
 	}
 
-	public PatologyEnum getPatology() {
+	public String getPatology() {
 		return patology;
 	}
 
-	public void setPatology(PatologyEnum patology) {
+	public void setPatology(String patology) {
 		this.patology = patology;
 	}
 

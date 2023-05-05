@@ -96,5 +96,11 @@ public class AnimalRestController {
 		return service.viewByLastSixEarTag(earTag, id);
 	}
 	
+	@PutMapping("/description")
+	public void updateDescription(@RequestBody(required = false) String description, @RequestParam(required = true) Long id) {
+		service.addDescription(description, id);
+		System.out.println(description);
+	}
+	
 	
 }

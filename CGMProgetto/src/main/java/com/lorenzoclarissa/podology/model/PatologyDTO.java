@@ -10,12 +10,12 @@ public class PatologyDTO {
 	private Long id;
 	private LocalDate date;
 	
-	private PatologyEnum patology;
+	private String patology;
 	
 	@JsonIgnore
 	private AnimalDTO animal;
 
-	public PatologyDTO(Long id, LocalDate date, PatologyEnum patology, AnimalDTO animal) {
+	public PatologyDTO(Long id, LocalDate date, String patology, AnimalDTO animal) {
 		this.id = id;
 		this.date = date;
 		this.patology = patology;
@@ -24,7 +24,7 @@ public class PatologyDTO {
 	
 	
 
-	public PatologyDTO(PatologyEnum patology) {
+	public PatologyDTO(String patology) {
 		this.patology = patology;
 	}
 
@@ -37,7 +37,7 @@ public class PatologyDTO {
 
 
 
-	public PatologyDTO(Long id, LocalDate date, PatologyEnum patology) {
+	public PatologyDTO(Long id, LocalDate date, String patology) {
 		super();
 		this.id = id;
 		this.date = date;
@@ -62,11 +62,11 @@ public class PatologyDTO {
 		this.date = date;
 	}
 
-	public PatologyEnum getPatology() {
+	public String getPatology() {
 		return patology;
 	}
 
-	public void setPatology(PatologyEnum patology) {
+	public void setPatology(String patology) {
 		this.patology = patology;
 	}
 

@@ -1,4 +1,4 @@
-
+const nAnimali = document.querySelector("#nAnimal");
 const URLParams = new URLSearchParams(window.location.search);
 let id = URLParams.get("id");
 const URL = "http://localhost:9026/api/animal/agency/" + id;
@@ -10,10 +10,11 @@ fetch(URL)
 .then(response => {
 
     tableBuilder(response);
-    console.log(response);
+   
 });
 
 function tableBuilder(animalsList){
+    nAnimali.innerHTML = animalsList.length;
     let htmlCode = '';
     animalsList.forEach(animal => {
         htmlCode += 
@@ -46,13 +47,14 @@ let button = document.querySelector("#buttonSearch");
 let buttonReload = document.querySelector("#buttonReload");
 let inputSearch = document.querySelector("#inputEarTag");
 
+
 button.addEventListener("click", search);
 buttonReload.addEventListener("click", reload);
 
 
 function search(){
     let inputValue = document.querySelector("#inputEarTag").value;
-    console.log(inputValue);
+    
     // if(inputValue.length == 6){
         console.log("ciclo if");
         let UrlSearch = "http://localhost:9026/api/animal/agency?id=" + URLParams.get("id") + "&earTag=" + inputValue;
@@ -67,7 +69,7 @@ function search(){
 
                 tableBuilder(response);
 
-                console.log(response);
+                
         });
 
 
@@ -84,13 +86,13 @@ function reload(){
         .then(response => {
 
         tableBuilder(response);
-        console.log(response);
+       
     });
 }
 
 function calcolaEta(birthday){
     let d = new Date(birthday);
-    console.log(typeof birthday);
+    
 
     let today = Date.now();
 
@@ -102,7 +104,7 @@ function calcolaEta(birthday){
 
 function calcolaEtaMesi(birthday){
     let d = new Date(birthday);
-    console.log(typeof birthday);
+    
 
     let today = Date.now();
 

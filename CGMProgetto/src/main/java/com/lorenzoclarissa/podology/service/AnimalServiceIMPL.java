@@ -169,6 +169,22 @@ public class AnimalServiceIMPL implements AnimalService{
 
 		return aDTOs;
 	}
+
+	@Override
+	public void addDescription(String description, Long id) {
+		AnimalEntity a = repo.findById(id).get();
+		a.setDescription(description);
+		repo.save(a);
+	}
+
+	@Override
+	public String viewDescription(Long id) {
+		if(repo.findById(id).get().getDescription() != null) {
+			return repo.findById(id).get().getDescription();
+		}
+		return null;
+			
+	}
 	
 	
 	

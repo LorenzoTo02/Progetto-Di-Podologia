@@ -1,8 +1,13 @@
 const URLParams = new URLSearchParams(window.location.search);
 let id = URLParams.get("id");
 let value = URLParams.get("agency");
+const textarea = document.querySelector("#descrizioneAnimale");
+const descButton = document.querySelector("#descButton");
+let animalDescription;
+let select = document.querySelector("#patology");
 
 const URL = "http://localhost:9026/api/animal/" + id;
+const URLPATOLOGY = "http://localhost:9026/api/patologyType"
 
 
 fetch(URL)
@@ -15,6 +20,14 @@ fetch(URL)
     console.log(response);
 });
 
+fetch(URLPATOLOGY)
+    .then(data => {
+        return data.json();
+    })
+    .then(response => {
+        patologyOptionBuilder(response)
+    });
+
 
 
 function animalBuilder(animal){
@@ -24,8 +37,10 @@ function animalBuilder(animal){
 
     orecchino.textContent = earTag;
     age.textContent = data;
-    console.log(data);
+    
     idSix.textContent = earTag.substring(8,14);
+    textarea.textContent = animal.description;
+    animalDescription = animal.description;
     
     
 }
@@ -60,24 +75,11 @@ function patologyPost(){
 
     const URLPOST = "http://localhost:9026/api/patology/animal/" + id;
 
-    let select = document.querySelector("#patology");
+   
 
     let malattia = new Patology();
-
-    switch (select.value) {
-        case "1":
-            malattia.setPatology("DERMATITE");
-            break;
-        case "2":
-            malattia.setPatology("ASCESSO");
-            break;
-        case "3":
-            malattia.setPatology("FLEMMONE");
-            break;
-
-        default:
-            break;
-    }
+    malattia.setPatology(select.value);
+    
 
     console.log(select.value);
     console.log(malattia);
@@ -121,4 +123,75 @@ let buttonMedical = document.querySelector("#buttonMedical");
 
 buttonMedical.setAttribute("href","http://localhost:9026/companies/agency/animal/medical?id=" + id + "&agency=" + value);
 
+textarea.addEventListener("input", function button() {
 
+    if(textarea.value != animalDescription){
+        
+        descButton.removeAttribute("hidden");
+    } else {
+        descButton.setAttribute("hidden","");
+    }
+})
+
+descButton.addEventListener("click", function updateDescription(){
+    
+    fetch("http://localhost:9026/api/animal/description?id="+id, {
+        method: 'PUT',
+        headers: {
+        
+            'Content-Type': 'application/json'
+        },
+        body: textarea.value
+    })
+    .then(data => {data.json
+        if(data.ok){
+            showOkDescToast();
+            setInterval(function reloadPage(){
+                window.location.reload();
+            }, 450)
+            
+        }
+    }) 
+    .then(response => {
+        console.log(response);
+    })
+});
+
+
+function showOkToast(){
+
+    const toastLiveExample = document.getElementById('liveToast')
+    
+    const toast = new bootstrap.Toast(toastLiveExample)
+
+    toast.show()
+        
+    
+}
+function showOkDescToast(){
+
+    const toastLiveExample = document.getElementById('okToast')
+    
+    const toast = new bootstrap.Toast(toastLiveExample)
+
+    toast.show()
+        
+    
+}
+
+function patologyOptionBuilder(patologiesType){
+
+    let htmlCode = '';
+    
+    patologiesType.forEach(patologyType => {
+        htmlCode += `
+            <option value="${patologyType.name}">${patologyType.name.toLowerCase()}</option>
+        `;
+        console.log(htmlCode);
+        console.log(patologyType);
+        
+    });
+
+    select.innerHTML += htmlCode;
+    
+}

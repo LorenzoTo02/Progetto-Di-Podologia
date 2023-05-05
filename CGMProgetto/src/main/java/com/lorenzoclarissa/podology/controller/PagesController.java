@@ -42,5 +42,15 @@ public class PagesController {
     public String addAgencyPage(){
         return "agencyAdd";
     }
+    
+    @GetMapping("/admin")
+    public String adminPage() {
+    	return "adminPage";
+    }
+    
+    @GetMapping("/admin/patology")
+    public String addPatology() {
+    	return "patologyTypeAdd";
+    }
 
 }

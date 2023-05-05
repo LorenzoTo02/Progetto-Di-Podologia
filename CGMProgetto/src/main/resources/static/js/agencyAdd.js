@@ -62,9 +62,12 @@ function addAzienda(nome){
         console.log(data.ok);
         if(data.ok){
             agencyForm.value = "";
+            setInterval(function returnHome() {
+                window.location.replace("/");
+            }, 200)
         }
     }) 
     .catch(response => {
-        console.log(response)      
+        console.log(response)
     })
 }

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Home</title>
+    <title>Admin</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,35 +31,43 @@
     </div>
     
     <header class="py-2 bg-primary text-light">
-        <div class="container d-flex">
-            <a href="/"><img class="img-fluid logo me-3" src="./img/LOGO_definitivo.png" alt=""></a>
-            <h1 class="fw-bold title">HOME</h1>
+        <div class="container">
+            <div class="row">
+                <div class="headerTitle d-flex col-6 align-items-center">
+                    <a href="/"><img class="img-fluid logo me-3" src="/img/LOGO_definitivo.png" alt=""></a>
+                    <h1 id="titoloPagina2" class="fw-bold title mb-0">SEZIONE ADMIN</h1>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                   
+                    <div class="d-flex align-items-center">
+                        <button class="ControllButton btn btn-light me-2 px-md-3" onclick="javascript:history.back()">
+                            <i class="bi bi-arrow-left"></i>
+                        </button>
+                        <button class="ControllButton btn btn-light px-md-3" onclick="window.location.replace('/')">
+                            <i class="bi bi-house"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
     <div class="container py-5">
         <div class="row align-item-center">
-            <div class="col-md-6 d-flex mb-4" onclick="window.location.replace('/companies')">
-                <button class="button bgBtn1"></button>
-                <div class="d-flex flex-column justify-content-center">
-                    <button class="btnText1 text-center px-2 text-light fw-bold">AZIENDE</button>
-                </div>
-            </div>
-            <div class="col-md-6 d-flex mb-4">
+            <div class="col-md-6 d-flex mb-4" onclick="window.location.replace('/admin/patology')">
                 <button class="button bgBtn2"></button>
                 <div class="d-flex flex-column justify-content-center">
-                    <button class="btnText2 text-center ps-4 pe-2 text-light fw-bold" onclick="window.location.replace('/newagency')">NUOVA <br> AZIENDA</button>
+                    <button class="btnText1 text-center px-2 text-light fw-bold">NUOVA PATOLOGIA</button>
                 </div>
             </div>
-        </div>
-        <div class="row align-item-center">
             <div class="col-md-6 d-flex mb-4">
-                <button class="button bgBtn4"></button>
+                <button class="button bgBtn5"></button>
                 <div class="d-flex flex-column justify-content-center">
-                    <button class="btnText3 text-center ps-4 pe-2 text-light fw-bold" onclick="window.location.replace('/admin')">SEZIONE ADMIN</button>
+                    <button class="btnText2 text-center ps-4 pe-2 text-light fw-bold" onclick="window.location.replace('/newagency')">GESTISCI PATOLOGIE</button>
                 </div>
             </div>
         </div>
+       
     </div>
     </div>
 
