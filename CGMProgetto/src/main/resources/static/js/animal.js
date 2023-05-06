@@ -7,8 +7,12 @@ let animalDescription;
 let select = document.querySelector("#patology");
 const deleteButton = document.querySelector("#removeAnimal");
 const motivation = document.querySelector("#motivation");
+const unghieImg = document.querySelector("#imgUnghie");
+const unghieImg2 = document.querySelector("#imgUnghie2");
+const stato = document.querySelector("#stato");
 
 const URL = "http://localhost:9026/api/animal/" + id;
+
 const URLPATOLOGY = "http://localhost:9026/api/patologyType"
 
 
@@ -44,6 +48,15 @@ function animalBuilder(animal){
     idSix.textContent = earTag.substring(8,14);
     textarea.textContent = animal.description;
     animalDescription = animal.description;
+    if(animal.patologies.length == 0){
+        unghieImg.innerHTML = `<img src="/img/unghiette.png" alt="unghiette" class="img-fluid imgMobile">`;
+        unghieImg2.innerHTML = `<img src="/img/unghiette.png" alt="unghiette" class="img-fluid imgMobile">`;
+        stato.innerHTML = `<div class="fw-bold fs-2 text-success">ANIMALE SANO</div>`;
+    } else {
+        unghieImg.innerHTML = `<img src="/img/unghietteRed.png" alt="unghiette" class="img-fluid imgMobile animate__animated animate__flash animate__infinite animate__slow">`;
+        unghieImg2.innerHTML = `<img src="/img/unghietteRed.png" alt="unghiette" class="img-fluid imgMobile animate__animated animate__flash animate__infinite animate__slow">`;
+        stato.innerHTML = `<div class="fw-bold fs-2 text-danger">ANIMALE MALATO</div>`;
+    }
     
     
 }
@@ -99,6 +112,9 @@ function patologyPost(){
         console.log(data.ok); 
         if(data.ok){
             showOkToast();
+            unghieImg.innerHTML = `<img src="/img/unghietteRed.png" alt="unghiette" class="img-fluid imgMobile animate__animated animate__flash animate__infinite animate__slow">`;
+            unghieImg2.innerHTML = `<img src="/img/unghietteRed.png" alt="unghiette" class="img-fluid imgMobile animate__animated animate__flash animate__infinite animate__slow">`;
+            stato.innerHTML = `<div class="fw-bold fs-2 text-danger">ANIMALE MALATO</div>`;
         }   
     }) 
     .then(response => {
@@ -148,10 +164,11 @@ descButton.addEventListener("click", function updateDescription(){
     })
     .then(data => {data.json
         if(data.ok){
-            showOkToast();
-            setInterval(function reloadPage(){
-                window.location.reload();
-            }, 450)
+            showOkDescToast();
+            descButton.setAttribute("hidden","");
+            // setInterval(function reloadPage(){
+            //     window.location.reload();
+            // }, 650)
             
         }
     }) 
@@ -200,8 +217,7 @@ function patologyOptionBuilder(patologiesType){
         htmlCode += `
             <option value="${patologyType.name}">${patologyType.name.toLowerCase()}</option>
         `;
-        console.log(htmlCode);
-        console.log(patologyType);
+        
         
     });
 

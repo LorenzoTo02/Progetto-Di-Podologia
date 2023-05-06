@@ -106,16 +106,16 @@ function patologyHistoryBuilder(patologies){
         noDataHistory.classList.remove("d-none");
         noDataHistory.classList.add("d-flex");          
     } else {
+        noDataHistory.classList.add("d-none");
         patologies.forEach(patology => {
-            noDataHistory.classList.add("d-none");
             htmlCode += 
             `<tr class="fs-3">
                     <th scope="row">${patology.patology}</th>
                     <td>${patology.date}</td>
-                    <td class="d-flex justify-content-center">${patology.healingDate}</td>
+                    <td>${patology.healingDate}</td>
             </tr>`;
-            tabellaHistory.innerHTML = htmlCode;
         });
+        tabellaHistory.innerHTML = htmlCode;
     }
   
 }

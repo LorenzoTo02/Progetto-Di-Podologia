@@ -35,7 +35,7 @@ public class PodologyVerify implements Runnable{
 			ZonedDateTime time = ZonedDateTime.of(LocalDateTime.of(patologyEntity.getDate(), LocalTime.MIN), ZoneId.systemDefault());
 			ZonedDateTime now = ZonedDateTime.now();
 			
-			if((now.toInstant().toEpochMilli() - time.toInstant().toEpochMilli()) >= 52) {			
+			if((now.toInstant().toEpochMilli() - time.toInstant().toEpochMilli()) >= 5259600000L) {			
 				PatologyHistory p = new PatologyHistory();
 				p.setId(patologyEntity.getId());
 				p.setDate(patologyEntity.getDate());
