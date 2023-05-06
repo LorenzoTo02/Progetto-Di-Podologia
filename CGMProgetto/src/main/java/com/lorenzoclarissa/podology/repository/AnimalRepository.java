@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.lorenzoclarissa.podology.entity.AnimalEntity;
 
+
 @Repository
 public interface AnimalRepository extends JpaRepository<AnimalEntity, Long>{
 

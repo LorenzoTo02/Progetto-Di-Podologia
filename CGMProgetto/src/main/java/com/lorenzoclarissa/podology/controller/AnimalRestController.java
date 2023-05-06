@@ -56,10 +56,10 @@ public class AnimalRestController {
 		service.addAnimal(animal, value);
 	}
 	
-	@DeleteMapping("/{id}")
-	public void delete(@PathVariable("id") Long id) {
+	@DeleteMapping("/{id}") //?motivation=?
+	public void delete(@PathVariable("id") Long id, @RequestParam String motivation) {
 		logger.info("call DELETE animal by id " + id);
-		service.deleteAnimal(id);
+		service.deleteAnimal(id, motivation);
 	}
 	
 	@DeleteMapping("/earTag/{earTag}")

@@ -1,5 +1,6 @@
 package com.lorenzoclarissa.podology.service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,10 +11,12 @@ import org.springframework.stereotype.Service;
 
 import com.lorenzoclarissa.podology.controller.AnimalRestController;
 import com.lorenzoclarissa.podology.entity.AnimalEntity;
+import com.lorenzoclarissa.podology.entity.AnimalHistory;
 import com.lorenzoclarissa.podology.entity.PatologyEntity;
 import com.lorenzoclarissa.podology.factory.Factory;
 import com.lorenzoclarissa.podology.model.AnimalDTO;
 import com.lorenzoclarissa.podology.repository.AgencyRepository;
+import com.lorenzoclarissa.podology.repository.AnimalHistoryRepository;
 import com.lorenzoclarissa.podology.repository.AnimalRepository;
 import com.lorenzoclarissa.podology.service.serviceInterface.AnimalService;
 
@@ -26,6 +29,8 @@ public class AnimalServiceIMPL implements AnimalService{
 	
 	@Autowired
 	private AnimalRepository repo;
+	@Autowired
+	private AnimalHistoryRepository repoHistory;
 	
 	@Autowired
 	private AgencyRepository repoAgency;
@@ -45,8 +50,16 @@ public class AnimalServiceIMPL implements AnimalService{
 	@Override
 	public void addAnimal(AnimalDTO animal, Long id) {
 		AnimalEntity a = Factory.animalDTOtoEntity(animal);
+		AnimalHistory ah = new AnimalHistory();		
 		a.setAgency(repoAgency.findById(id).get());
 		repo.save(a);
+		ah.setId(repo.selectByEarTag(a.getEarTag()).getId());
+		ah.setEarTag(a.getEarTag());
+		ah.setBirthday(a.getBirthdary());
+		ah.setDescription(a.getDescription());
+		ah.setAgency(a.getAgency().getName());
+		System.out.println(ah.toString());
+		repoHistory.save(ah);
 	}
 
 	@Override
@@ -124,10 +137,15 @@ public class AnimalServiceIMPL implements AnimalService{
 	}
 
 	@Override
-	public void deleteAnimal(Long id) {
+	public void deleteAnimal(Long id, String motivation) {
 		if(repo.findById(id).isEmpty()) {
 			logger.warn("Try to delete by id a non-existing animal - " + id);
 		} else {
+			
+			AnimalHistory a = repoHistory.findById(id).get();
+			a.setRemovalDate(LocalDate.now());
+			a.setMotivation(motivation);
+			repoHistory.save(a);
 			repo.deleteById(id);
 			logger.info("Deleted animal entity ID: " + id);
 		}

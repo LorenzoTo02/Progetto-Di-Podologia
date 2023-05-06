@@ -1,16 +1,28 @@
 package com.lorenzoclarissa.podology.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.lorenzoclarissa.podology.autoPodology.PodologyVerify;
 
 @Controller
 @RequestMapping("")
 public class PagesController {
     
+	@Autowired
+	private PodologyVerify verify;
+	
     @GetMapping
     public String home(){
-        return "index";
+    	try {
+			verify.run();
+			return "index";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "index";
+		}
     }
 
     @GetMapping("/companies")
@@ -51,6 +63,11 @@ public class PagesController {
     @GetMapping("/admin/patology")
     public String addPatology() {
     	return "patologyTypeAdd";
+    }
+    
+    @GetMapping("/admin/patologies")
+    public String getPatologies() {
+    	return "patologies";
     }
 
 }

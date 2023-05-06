@@ -9,7 +9,7 @@ public interface AnimalService {
 	List<AnimalDTO> viewAll();
 	
 	void addAnimal(AnimalDTO animal, Long id);
-	void deleteAnimal(Long id);
+	void deleteAnimal(Long id, String motivation);
 	void deleteAnimalByEarTag(String earTag);
 	
 	AnimalDTO viewById(Long id);

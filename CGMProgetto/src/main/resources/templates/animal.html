@@ -45,8 +45,9 @@
         </div>
     </header>
     <main>
-
+        
         <div class="container mt-5">
+            
             <div class="row">
                 <div class="row col-12 col-md-4">
                     <div class="col-9 col-md-12 justify-content-center mb-5">
@@ -78,7 +79,7 @@
                             </div>
                             <div class="descrizione fw-bold mt-3">
                                 DESCRIZIONE:
-                                <textarea id="descrizioneAnimale" class="form-control text-muted" maxlength="250" placeholder="descrizione animale libera" rows="4" cols="10" style="resize: none;"></textarea>
+                                <textarea id="descrizioneAnimale" class="form-control fw-bold" maxlength="250" placeholder="descrizione animale libera" rows="4" cols="10" style="resize: none;"></textarea>
                                 <div class="d-flex justify-content-end mt-2">
                                     <a id="descButton" class="btn btn-primary agencyButton fs-3" hidden>Aggiorna</a>
                                 </div>
@@ -102,7 +103,15 @@
                         <a class="btn btn-primary agencyButton fs-1" id="buttonMedical">Cartella Clinica</a>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        <div class="d-flex justify-content-center">
+                            <a class="btn btn-danger agencyButton fs-5 mt-2" data-bs-toggle="modal" data-bs-target="#removeModal">Rimuovi Animale</a>
+                        </div>
+                    </div>
+                </div>
             </div>
+            
         </div>
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl modal-dialog-centered">
@@ -129,6 +138,35 @@
         </div>
             <!-- <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button> -->
 
+    <!-- REMOVE MODAL -->
+    <div class="modal fade" id="removeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+              <h1 class="modal-title fs-1" id="staticBackdropLabel">Rimuovere l'animale?</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h4>Selezionare la motivazione della rimozione dell'animale</h4>
+                <div class="input-group mb-3 fs-2">
+                    
+                    <select class="form-select fs-2" aria-label="Default select example" id="motivation">
+                        <option selected>-Seleziona Motivazione-</option>
+                        <option value="Venduto">Venduto</option>
+                        <option value="Deceduto">Deceduto</option>
+                      </select>
+                </div>
+                  
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary fs-2" data-bs-dismiss="modal">Chiudi</button>
+              <a type="button" class="btn btn-danger fs-2" id="removeAnimal" data-bs-dismiss="modal">Rimuovi</a>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- END REMOVE MODAL -->
 
     <div class="toast-container position-fixed bottom-0 end-0 p-3 toastPosition">
     <div id="liveToast" class="toast personalToast" role="alert" aria-live="assertive" aria-atomic="true">
@@ -147,6 +185,13 @@
         <div id="okToast" class="toast personalToast" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-body">
             Descrizione aggiornata.
+            </div>
+        </div>
+        </div>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3 toastPosition">
+        <div id="delToast" class="toast redToast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-body">
+            Animale Rimosso.
             </div>
         </div>
         </div>

@@ -5,9 +5,12 @@ const textarea = document.querySelector("#descrizioneAnimale");
 const descButton = document.querySelector("#descButton");
 let animalDescription;
 let select = document.querySelector("#patology");
+const deleteButton = document.querySelector("#removeAnimal");
+const motivation = document.querySelector("#motivation");
 
 const URL = "http://localhost:9026/api/animal/" + id;
 const URLPATOLOGY = "http://localhost:9026/api/patologyType"
+
 
 
 fetch(URL)
@@ -145,7 +148,7 @@ descButton.addEventListener("click", function updateDescription(){
     })
     .then(data => {data.json
         if(data.ok){
-            showOkDescToast();
+            showOkToast();
             setInterval(function reloadPage(){
                 window.location.reload();
             }, 450)
@@ -178,6 +181,16 @@ function showOkDescToast(){
         
     
 }
+function showOkDelToast(){
+
+    const toastLiveExample = document.getElementById('delToast')
+    
+    const toast = new bootstrap.Toast(toastLiveExample)
+
+    toast.show()
+        
+    
+}
 
 function patologyOptionBuilder(patologiesType){
 
@@ -194,4 +207,25 @@ function patologyOptionBuilder(patologiesType){
 
     select.innerHTML += htmlCode;
     
+}
+
+// DELETE ANIMAL
+
+
+deleteButton.addEventListener("click", deleteAnimal);
+
+function deleteAnimal(){
+    const URLDELETE = "http://localhost:9026/api/animal/" + id + "?motivation=" + motivation.value;
+    fetch(URLDELETE, {
+        method: 'DELETE',
+    })
+        .then(res => {res.text()
+            if(res.ok){
+                showOkDelToast();
+                setInterval(function returnBack(){
+                    window.history.back();
+                }, 450)
+            }
+        }) // or res.json()
+        .then(res => console.log(res))
 }

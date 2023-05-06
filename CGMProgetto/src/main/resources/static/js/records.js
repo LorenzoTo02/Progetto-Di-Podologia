@@ -1,8 +1,12 @@
 const URLParams = new URLSearchParams(window.location.search);
 let id = URLParams.get("id");
 let value = URLParams.get("agency");
+const tabellaHistory = document.querySelector("#historyTable");
+let nodata = document.querySelector("#no");
+let noDataHistory = document.querySelector("#noHistory");
 
 const URL = "http://localhost:9026/api/animal/" + id;
+const URLHISTORY = "http://localhost:9026/api/historyPatology/" + id;
 
 onload = getPatologies();
 
@@ -17,6 +21,16 @@ function getPatologies(){
         console.log(response);
         
     });
+    fetch(URLHISTORY)
+    .then(data => {
+        return data.json()
+    })
+    .then(response => {
+
+        patologyHistoryBuilder(response);
+        console.log(response);
+        
+    });
 }
 
 function animalBuilder(animal){
@@ -27,7 +41,7 @@ function animalBuilder(animal){
 
 }
 
-let nodata = document.querySelector("#no");
+
 
 
 function patologyBuilder(patologies){
@@ -82,4 +96,26 @@ function showOkToast(){
     toast.show()
         
     
+}
+
+function patologyHistoryBuilder(patologies){
+    tabellaHistory.innerHTML = '';
+    let htmlCode = '';
+
+    if(patologies.length == 0){
+        noDataHistory.classList.remove("d-none");
+        noDataHistory.classList.add("d-flex");          
+    } else {
+        patologies.forEach(patology => {
+            noDataHistory.classList.add("d-none");
+            htmlCode += 
+            `<tr class="fs-3">
+                    <th scope="row">${patology.patology}</th>
+                    <td>${patology.date}</td>
+                    <td class="d-flex justify-content-center">${patology.healingDate}</td>
+            </tr>`;
+            tabellaHistory.innerHTML = htmlCode;
+        });
+    }
+  
 }

@@ -33,4 +33,9 @@ public class PatologyTypeServiceIMPL implements PatologyTypeService{
 		repo.save(Factory.patDtoToEntity(patology));
 	}
 
+	@Override
+	public void deletePatology(Long id) {
+		repo.deleteById(id);
+	}
+
 }

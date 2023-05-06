@@ -8,4 +8,5 @@ public interface PatologyTypeService {
     
     List<PatologyTypeDTO> getAllPatologiesType();
     void addPatologyType(PatologyTypeDTO patology);
+    void deletePatology(Long id);
 }
