@@ -1,4 +1,4 @@
-package com.lorenzoclarissa.podology.service.serviceInterface;
+package com.lorenzoclarissa.podology.service;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.lorenzoclarissa.podology.entity.PatologyHistory;
 import com.lorenzoclarissa.podology.repository.PatologyHistoryRepository;
+import com.lorenzoclarissa.podology.service.serviceInterface.PatologyHistoryService;
 
 @Service
 public class PatologyHistoryServiceIMPL implements PatologyHistoryService{

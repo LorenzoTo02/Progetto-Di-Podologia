@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lorenzoclarissa.podology.entity.PatologyHistory;
-import com.lorenzoclarissa.podology.service.serviceInterface.PatologyHistoryServiceIMPL;
+import com.lorenzoclarissa.podology.service.PatologyHistoryServiceIMPL;
 
 @RestController
 @RequestMapping("/api/historyPatology")

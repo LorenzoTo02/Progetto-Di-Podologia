@@ -14,12 +14,14 @@ import org.springframework.security.core.userdetails.User;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
+	
+	
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http
 			.authorizeHttpRequests()
-				.requestMatchers("/","/companies","/companies/**").hasRole("ADMIN")
+				.requestMatchers("/**", "/api/**").hasRole("ADMIN")
 				.anyRequest().permitAll()
 				.and()			
 				.formLogin()
@@ -33,7 +35,7 @@ public class WebSecurityConfig {
 	@Bean
 	public UserDetailsService userDetailsService() {
 		UserDetails user =
-			 User.withDefaultPasswordEncoder()
+			 User.builder()
 			 	.username("ADMIN")
 			 	.password("mucca")
 			 	.roles("ADMIN")
