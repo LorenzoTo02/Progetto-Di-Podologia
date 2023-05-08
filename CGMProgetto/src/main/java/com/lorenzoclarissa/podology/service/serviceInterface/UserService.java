@@ -1,9 +1,9 @@
 package com.lorenzoclarissa.podology.service.serviceInterface;
 
-import com.lorenzoclarissa.podology.model.UserDTO;
+import com.lorenzoclarissa.podology.entity.UserEntity;
 
 public interface UserService {
 
-	UserDTO getUser(String username, String password);
+	void getUser(String username, String password);
 	
 }
