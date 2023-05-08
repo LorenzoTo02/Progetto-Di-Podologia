@@ -58,6 +58,7 @@ function patologyBuilder(patologies){
             `<tr class="fs-3">
                     <th scope="row">${patology.patology}</th>
                     <td>${patology.date}</td>
+                    <td class="text-danger fw-bold">${dayPatologyBuilder(patology.date)}</td>
                     <td class="d-flex justify-content-center">${deleteButtonBuilder(patology)}</td>
             </tr>`;
             table.innerHTML = htmlCode;
@@ -118,4 +119,19 @@ function patologyHistoryBuilder(patologies){
         tabellaHistory.innerHTML = htmlCode;
     }
   
+}
+
+function dayPatologyBuilder(date){
+    let data = Date.parse(date);
+    let oggi = Date.now();
+
+    if(Math.round((oggi - data)/86400000) == 1){
+        return Math.round((oggi - data)/86400000) + "g";
+    }else if(Math.round((oggi - data)/86400000) == 0){
+        return "Da oggi";
+    }else{
+        return Math.round((oggi - data)/86400000) + "gg";
+    }
+
+    
 }
