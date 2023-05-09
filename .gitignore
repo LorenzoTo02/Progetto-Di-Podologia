@@ -1,2 +1,3 @@
 /.metadata/
 CGMProgetto/src/main/resources/application.yaml
+*.yaml
