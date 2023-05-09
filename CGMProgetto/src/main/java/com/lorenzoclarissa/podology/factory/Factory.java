@@ -7,10 +7,12 @@ import com.lorenzoclarissa.podology.entity.AgencyEntity;
 import com.lorenzoclarissa.podology.entity.AnimalEntity;
 import com.lorenzoclarissa.podology.entity.PatologyEntity;
 import com.lorenzoclarissa.podology.entity.PatologyTypeEntity;
+import com.lorenzoclarissa.podology.entity.UserEntity;
 import com.lorenzoclarissa.podology.model.AgencyDTO;
 import com.lorenzoclarissa.podology.model.AnimalDTO;
 import com.lorenzoclarissa.podology.model.PatologyDTO;
 import com.lorenzoclarissa.podology.model.PatologyTypeDTO;
+import com.lorenzoclarissa.podology.model.UserDTO;
 
 public class Factory {
 
@@ -119,4 +121,18 @@ public class Factory {
 		return p;
 	}
 	
+	public static UserEntity UserDTOtoUserEntity(UserDTO userDTO) {
+		UserEntity userE = new UserEntity();
+		userE.setUsername(userDTO.getUsername());
+		userE.setRole(userDTO.getRole());
+		return userE;
+	}
+	
+	public static UserDTO userEntityToDTO(UserEntity userE) {
+		UserDTO userDTO = new UserDTO();
+		userDTO.setId(userE.getId());
+		userDTO.setUsername(userE.getUsername());
+		userDTO.setRole(userE.getRole());
+		return userDTO;
+	}
 }

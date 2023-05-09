@@ -26,17 +26,14 @@
         <div class="container d-flex justify-content-center mt-5">
 
             <div class="box">
-                <form class="form" th:action="@{/login}" method="post">
+                <form class="form">
                   <h2>Accedi</h2>
-                  <div th:if="${param.error}" class="text-center errorPass fs-3">
-                        Password invalida.
-                    </div>
-                    <div th:if="${param.logout}" class="text-center errorPass fs-3" >
-                        Sei stato disconnesso.
+                  <div id="error" class="text-center errorPass fs-3" hidden>
+                        Credenziali invalide.
                     </div>
                   <div class="inputBox mt-2 mb-1">
                     <span class="fs-3">Username</span>
-                    <input type="text" required="required" value="ADMIN" class="form-control fs-3" name="username" readonly>
+                    <input type="text" required="required" id="username" class="form-control fs-3" name="username">
                     <i></i>
                   </div>
                   <div class="inputBox mt-2 mb-1">
@@ -48,7 +45,7 @@
                     <a href="#">Password dimenticata?</a>
                     <a href="#">Registrati</a>
                   </div> -->
-                  <input type="submit" id="loginBtn" class="btn btn-primary mt-5 fs-2" value="Login">
+                  <a id="loginBtn" class="btn btn-primary mt-5 fs-2">Login</a>
                 </form>
               </div>
 
@@ -56,7 +53,7 @@
 
     </main>
 
-    <script src="./js/login.js"></script>
+    <script src="/js/login.js"></script>
     
 </body>
 </html>

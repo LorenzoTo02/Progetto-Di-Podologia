@@ -1,9 +1,19 @@
 package com.lorenzoclarissa.podology.service.serviceInterface;
 
-import com.lorenzoclarissa.podology.entity.UserEntity;
+import java.util.List;
+
+import com.lorenzoclarissa.podology.authentication.Authentication;
+import com.lorenzoclarissa.podology.authentication.Session;
+import com.lorenzoclarissa.podology.model.UserDTO;
 
 public interface UserService {
 
-	void getUser(String username, String password);
+	List<UserDTO> getAll();
+	
+	UserDTO getById(Long id);
+	
+	void addUser(UserDTO user);
+	
+	Session checkCredentials(Authentication auth);
 	
 }
