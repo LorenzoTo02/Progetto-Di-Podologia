@@ -14,6 +14,12 @@ public class UserDTO {
 		this.password = password;
 	}
 
+	public UserDTO(String username, String password, RoleEnum role) {
+		this.username = username;
+		this.password = password;
+		this.role = role;
+	}
+
 	public UserDTO() {
 		
 	}
@@ -49,6 +55,13 @@ public class UserDTO {
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+	@Override
+	public String toString() {
+		return "UserDTO [id=" + id + ", username=" + username + ", password=" + password + ", role=" + role + "]";
+	}
+
+	
 	
 	
 }

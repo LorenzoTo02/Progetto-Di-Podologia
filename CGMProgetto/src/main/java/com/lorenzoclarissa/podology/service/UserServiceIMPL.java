@@ -59,6 +59,11 @@ public class UserServiceIMPL implements UserService{
 		}
 		return null;
 	}
+
+	@Override
+	public void deleteUser(Long id) {
+		repo.deleteById(id);
+	}
 	
 	
 	

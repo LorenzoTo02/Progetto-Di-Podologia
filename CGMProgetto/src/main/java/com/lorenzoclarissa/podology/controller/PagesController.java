@@ -70,4 +70,13 @@ public class PagesController {
     	return "patologies";
     }
 
+    @GetMapping("/admin/users")
+    public String getUser() {
+    	return "users";
+    }
+
+    @GetMapping("/admin/user")
+    public String addUser() {
+    	return "newUser";
+    }
 }

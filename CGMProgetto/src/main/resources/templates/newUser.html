@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/NormalizeCss.css">
-    <title id="titoloPagina">Nuova patologia</title>
+    <title id="titoloPagina">Nuovo Utente</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="headerTitle d-flex col-6 align-items-center">
                     <a href="/"><img class="img-fluid logo me-3" src="/img/LOGO_definitivo.png" alt=""></a>
-                    <h1 id="titoloPagina2" class="fw-bold title mb-0">Nuova patologia</h1>
+                    <h1 id="titoloPagina2" class="fw-bold title mb-0">Nuovo utente</h1>
                 </div>
                 <div class="col-6 d-flex justify-content-end">
                    
@@ -48,25 +48,29 @@
 
         
         <div class="container">
-            <!-- <div class="imgAgency d-flex justify-content-center">
-                <img src="/img/farm1.png" class="img-fluid" alt="agency_Pics">
-            </div> -->
+            
             <div class="d-flex justify-content-center">
                 <div class="formContainer mt-5">
                     <div class="inputContainer fs-4">
-                        <label for="exampleInputEmail1" class="form-label">Nome Patologia</label>
-                        <input type="text" class="form-control fs-4" id="patology">
+                        <label for="exampleInputEmail1" class="form-label">Credenziali Utente</label>
+                        <input type="text" class="form-control fs-4 mt-2" id="username" placeholder="Username dell'utente">
+                        <input type="password" class="form-control fs-4 mt-2" id="password" placeholder="Passowrd dell'utente">
+                        <select class="form-select fs-2 mt-2" aria-label="Default select example" id="role">
+                            <option value="VETERINARIO">Veterinario</option>
+                            <option value="ADMIN">Admin</option>  
+                        </select>
+                        <div class="text-danger fs-3" id="errorForm" hidden>La lunghezza dell'username deve essere tra 8 e 20 caratteri<br>La password deve contenere almeno 8 caratteri</div>
                     </div>
                 </div>
             </div>
             <div class="mb-3">
                 <div class="d-flex justify-content-center mt-5">
-                    <a class="btn btn-primary agencyButton fs-1" id="addPatology">Aggiungi nuova Patologia</a>
+                    <a class="btn btn-primary agencyButton fs-1" id="addUser">Aggiungi nuovo utente</a>
                 </div>
             </div>
         </div>
         <div class="toast-container position-fixed bottom-0 end-0 p-3 toastPosition">
-            <div id="liveToast" class="toast redToast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div id="errorToast" class="toast redToast" role="alert" aria-live="assertive" aria-atomic="true">
                 <!-- <div class="toast-header">
                     <img src="..." class="rounded me-2" alt="...">
                         <strong class="me-auto">Bootstrap</strong>
@@ -74,7 +78,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                     </div> -->
                     <div class="toast-body">
-                Campo patologia vuoto.
+                Compila il form.
                 </div>
             </div>
             </div>
@@ -87,7 +91,20 @@
                             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                         </div> -->
                         <div class="toast-body">
-                    Patologia inserita.
+                    Utente aggiunto.
+                    </div>
+                </div>
+                </div>
+            <div class="toast-container position-fixed bottom-0 end-0 p-3 toastPosition">
+                <div id="errorToast" class="toast redToast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <!-- <div class="toast-header">
+                        <img src="..." class="rounded me-2" alt="...">
+                            <strong class="me-auto">Bootstrap</strong>
+                            <small>11 mins ago</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div> -->
+                        <div class="toast-body">
+                    Dati invalidi.
                     </div>
                 </div>
                 </div>
@@ -97,7 +114,7 @@
     <script src="/js/checkSession.js"></script>
     <script src="/js/loading.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    <script src="/js/patologyAdd.js"></script>
+    <script src="/js/userAdd.js"></script>
   </body>
 </body>
 </html>

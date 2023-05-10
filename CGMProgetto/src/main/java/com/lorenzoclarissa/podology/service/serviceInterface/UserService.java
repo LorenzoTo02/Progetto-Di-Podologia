@@ -13,6 +13,8 @@ public interface UserService {
 	UserDTO getById(Long id);
 	
 	void addUser(UserDTO user);
+
+	void deleteUser(Long id);
 	
 	Session checkCredentials(Authentication auth);
 	

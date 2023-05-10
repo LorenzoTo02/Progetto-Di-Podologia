@@ -124,6 +124,7 @@ public class Factory {
 	public static UserEntity UserDTOtoUserEntity(UserDTO userDTO) {
 		UserEntity userE = new UserEntity();
 		userE.setUsername(userDTO.getUsername());
+		userE.setPassword(userDTO.getPassword());
 		userE.setRole(userDTO.getRole());
 		return userE;
 	}
